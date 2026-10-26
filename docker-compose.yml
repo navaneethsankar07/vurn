@@ -82,6 +82,7 @@ services:
       - "127.0.0.1:8000:8000"
     volumes:
       - ./backend/secrets:/app/secrets:ro
+      - ./backend/logs:/app/logs
     depends_on:
       elasticsearch:
         condition: service_healthy
@@ -96,6 +97,7 @@ services:
     command: celery -A config worker --loglevel=info --concurrency=2
     volumes:
       - ./backend/secrets:/app/secrets:ro
+      - ./backend/logs:/app/logs
     depends_on:
       elasticsearch:
         condition: service_healthy
