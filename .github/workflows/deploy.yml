@@ -22,7 +22,7 @@ jobs:
 
       - name: Validate Backend Code
         run: |
-          python -m py_compile $(git ls-files 'backend/*.py')
+          python -m compileall backend/
           echo "Syntax verification successful."
 
   deploy:
