@@ -55,9 +55,6 @@ jobs:
             echo "--> Running database migrations..."
             docker compose -f docker-compose.yml exec -T backend python manage.py migrate --noinput
 
-            echo "--> Collecting static files..."
-            docker compose -f docker-compose.yml exec -T backend python manage.py collectstatic --noinput
-
             echo "--> Pruning dangling Docker build cache..."
             docker image prune -f
 
